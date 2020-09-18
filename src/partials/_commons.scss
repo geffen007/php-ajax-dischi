@@ -3,3 +3,33 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+h3 {
+
+}
+
+.container{
+    margin: 0 auto;
+    max-width: 860px;
+}
+
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: $bcg;
+    .topbar{
+        background-color: $bcgTB;
+        .container{
+            padding: 5px 10px 5px 10px;
+        }
+
+        .logo{
+            height: 40px;
+        }
+    }
+    .discs{
+        padding-top: 50px;
+        @include flex(row, flex-start, space-between);
+        flex-wrap: wrap;
+    }
+}

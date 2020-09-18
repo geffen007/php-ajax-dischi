@@ -1,0 +1,32 @@
+.disc {
+    border-radius: 5px;
+    color: white;
+    max-width: 130px;
+    height: 230px;
+    margin: 10px 10px 20px 10px;
+    padding: 10px;
+    background-color: black;
+    .copertina{
+        img{width: 100%;
+
+        }
+    }
+    .details{
+        @include flex(column, center, flex-start);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        h3.discname{
+            font-size: 15px;
+            text-align: center;
+
+        }
+        p.author{
+            text-align: center;
+            font-size: 13px;
+        }
+        p.year{
+            font-size: 13px;
+            text-align: center;
+        }
+    }
+}
