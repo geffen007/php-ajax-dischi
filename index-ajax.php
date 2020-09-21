@@ -13,7 +13,11 @@
         <div class="topbar">
             <div class="container">
                 <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Logoappliandrospotify.png" alt="">
+                <select class="author" name="">
+                    <option value="all">All</option>
+                </select>
             </div>
+
         </div>
 
         <div class="container">
@@ -22,7 +26,6 @@
         </div>
 
     <script id="entry-template" type="text/x-handlebars-template">
-
         <div class="disc">
             <div class="copertina">
                 <img src="{{poster}}" alt="folder {{title}}">
@@ -33,12 +36,12 @@
                 <p class="year">{{year}}</p>
             </div>
         </div>
+    </script>
 
-
+    <script id="entry-select" type="text/x-handlebars-template">
+        <option value="{{author}}">{{author}}</option>
     </script>
 
     <script src="dist/app.js" charset="utf-8"></script>
-
-
     </body>
 </html>
