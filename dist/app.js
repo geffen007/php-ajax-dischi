@@ -11065,6 +11065,7 @@ function arrayAuthor(response) {
     }
   }
 
+  $('.author option:nth-of-type(1n+2)').remove();
   selectAuthor(authors);
 }
 

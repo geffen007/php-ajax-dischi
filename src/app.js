@@ -87,6 +87,7 @@ function arrayAuthor(response) {
             authors.push(author);
         }
     }
+    $('.author option:nth-of-type(1n+2)').remove();
     selectAuthor(authors);
 }
 
