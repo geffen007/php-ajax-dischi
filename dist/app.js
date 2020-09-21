@@ -10980,49 +10980,68 @@ return jQuery;
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 $(document).ready(function () {
-  getdisc();
-  selAuthor();
+  getdisc(); // selAuthor();   usando solo JS
+
+  selAuthorPhp();
 });
 
-function selAuthor() {
+function selAuthorPhp() {
   var select = $('select.author').change(function () {
     var selectedAuthor = $(this).val().toString();
+    console.log(selectedAuthor);
     $.ajax({
-      'url': 'http://localhost/Esercizi/04/php-ajax-dischi/database/server.php',
+      'url': 'http://localhost/Esercizi/04/php-ajax-dischi/database/server.php?author=' + selectedAuthor,
       'method': 'GET',
       'success': function success(resp) {
-        discSel(resp, selectedAuthor);
+        $('.discs').empty();
+        disc(resp);
       },
       'error': function error() {
         alert('Errore');
       }
     });
   });
-}
+} // usando solo JS
+// function selAuthor(){
+//     var select= $('select.author').change(function(){
+//         var selectedAuthor = $(this).val().toString();
+//         $.ajax(
+//         {
+//             'url': 'http://localhost/Esercizi/04/php-ajax-dischi/database/server.php',
+//             'method': 'GET',
+//             'success': function(resp){
+//             discSel(resp, selectedAuthor);
+//             },
+//             'error': function(){
+//             alert('Errore');
+//             }
+//         });
+//     });
+// }
+//
+// function discSel(response, value){
+//     for (var i = 0; i < response.length; i++) {
+//         var author = response[i].author;
+//         var source = $('#entry-template').html();
+//         var template = Handlebars.compile(source);
+//         if (value == 'All'){
+//             $('.discs').empty();
+//             getdisc();
+//             return;
+//         }else if (value == author) {
+//             $('.discs').empty();
+//             var context = {
+//                 poster: response[i].poster,
+//                 title: response[i].title,
+//                 author: author,
+//                 year: response[i].year
+//             }
+//             var html = template(context);
+//             $('.discs').append(html);
+//         }
+//     }
+// }
 
-function discSel(response, value) {
-  for (var i = 0; i < response.length; i++) {
-    var author = response[i].author;
-    var source = $('#entry-template').html();
-    var template = Handlebars.compile(source);
-
-    if (value == 'All') {
-      $('.discs').empty();
-      getdisc();
-      return;
-    } else if (value == author) {
-      $('.discs').empty();
-      var context = {
-        poster: response[i].poster,
-        title: response[i].title,
-        author: author,
-        year: response[i].year
-      };
-      var html = template(context);
-      $('.discs').append(html);
-    }
-  }
-}
 
 function getdisc() {
   $.ajax({
