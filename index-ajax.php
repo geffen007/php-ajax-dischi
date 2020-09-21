@@ -14,7 +14,7 @@
             <div class="container">
                 <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Logoappliandrospotify.png" alt="">
                 <select class="author" name="">
-                    <option value="all">All</option>
+                    <option value="All">All</option>
                 </select>
             </div>
 
