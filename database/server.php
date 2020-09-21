@@ -11,7 +11,6 @@ function encodeJson($db){
 }
 
 function getDb($database){
-
     if (empty($_GET['author'])) {
         encodeJson($database);
     } else {
@@ -19,8 +18,9 @@ function getDb($database){
             $selectedAuthor = [];
             if (in_array($_GET['author'], $key)) {
                 array_push($selectedAuthor, $key);
-                encodeJson($selectedAuthor);
+
             }
+            encodeJson($selectedAuthor);
         }
     }
 }

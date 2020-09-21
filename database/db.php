@@ -35,6 +35,18 @@
             'author' => 'Eric Clapton',
             'year' => 2002,
             'poster' => 'https://images-na.ssl-images-amazon.com/images/I/81MDAIdh78L._SY355_.jpg'
+        ],
+        [
+            'title' => 'Sonic Highways',
+            'author' => 'Foo Fighters',
+            'year' => 2014,
+            'poster' => 'https://images-na.ssl-images-amazon.com/images/I/714euSCi03L._AC_SX679_.jpg'
+        ],
+        [
+            'title' => 'Concrete and Gold',
+            'author' => 'Foo Fighters',
+            'year' => 2017,
+            'poster' => 'https://images-na.ssl-images-amazon.com/images/I/A1xJBbBuZHL._AC_SL1500_.jpg'
         ]
     ];
  ?>
