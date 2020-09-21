@@ -14,13 +14,12 @@ function getDb($database){
     if (empty($_GET['author'])) {
         encodeJson($database);
     } else {
-        foreach ($database as $key) {
-            $selectedAuthor = [];
-            if (in_array($_GET['author'], $key)) {
-                array_push($selectedAuthor, $key);
-
+        $selectedAuthor = [];
+        foreach ($database as $item) {
+            if (in_array($_GET['author'], $item)) {
+                array_push($selectedAuthor, $item);
             }
-            encodeJson($selectedAuthor);
         }
+        encodeJson($selectedAuthor);
     }
 }
