@@ -8,7 +8,6 @@ $(document).ready(function(){
 function selAuthor(){
     var select= $('select.author').change(function(){
         var selectedAuthor = $(this).val().toString();
-        console.log(selectedAuthor);
         $.ajax(
         {
             'url': 'http://localhost/Esercizi/04/php-ajax-dischi/database/server.php',
