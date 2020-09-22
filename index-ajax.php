@@ -13,7 +13,7 @@
         <div class="topbar">
             <div class="container">
                 <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Logoappliandrospotify.png" alt="">
-                <select class="author" name="">
+                <select class="author" name="author">
                     <option value="">All</option>
                 </select>
             </div>

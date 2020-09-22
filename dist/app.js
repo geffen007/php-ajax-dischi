@@ -10980,18 +10980,20 @@ return jQuery;
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 $(document).ready(function () {
-  getdisc(); // selAuthor();   usando solo JS
-
+  getdisc();
   selAuthorPhp();
 });
 
 function selAuthorPhp() {
-  var select = $('select.author').change(function () {
-    var selectedAuthor = $(this).val().toString();
-    console.log(selectedAuthor);
+  var select = $(document).on('change', 'select.author', function () {
+    // var select= $('select.author').change(function(){
+    var selectedAuthor = $(this).val();
     $.ajax({
-      'url': 'http://localhost/Esercizi/04/php-ajax-dischi/database/server.php?author=' + selectedAuthor,
+      'url': 'http://localhost/Esercizi/04/php-ajax-dischi/database/server.php',
       'method': 'GET',
+      'data': {
+        author: selectedAuthor
+      },
       'success': function success(resp) {
         $('.discs').empty();
         disc(resp);
@@ -11001,47 +11003,7 @@ function selAuthorPhp() {
       }
     });
   });
-} // usando solo JS
-// function selAuthor(){
-//     var select= $('select.author').change(function(){
-//         var selectedAuthor = $(this).val().toString();
-//         $.ajax(
-//         {
-//             'url': 'http://localhost/Esercizi/04/php-ajax-dischi/database/server.php',
-//             'method': 'GET',
-//             'success': function(resp){
-//             discSel(resp, selectedAuthor);
-//             },
-//             'error': function(){
-//             alert('Errore');
-//             }
-//         });
-//     });
-// }
-//
-// function discSel(response, value){
-//     for (var i = 0; i < response.length; i++) {
-//         var author = response[i].author;
-//         var source = $('#entry-template').html();
-//         var template = Handlebars.compile(source);
-//         if (value == 'All'){
-//             $('.discs').empty();
-//             getdisc();
-//             return;
-//         }else if (value == author) {
-//             $('.discs').empty();
-//             var context = {
-//                 poster: response[i].poster,
-//                 title: response[i].title,
-//                 author: author,
-//                 year: response[i].year
-//             }
-//             var html = template(context);
-//             $('.discs').append(html);
-//         }
-//     }
-// }
-
+}
 
 function getdisc() {
   $.ajax({
@@ -11078,12 +11040,11 @@ function arrayAuthor(response) {
   for (var i = 0; i < response.length; i++) {
     var author = response[i].author;
 
-    if (authors.includes(author) == false) {
+    if (!authors.includes(author)) {
       authors.push(author);
     }
   }
 
-  $('.author option:nth-of-type(1n+2)').remove();
   selectAuthor(authors);
 }
 
